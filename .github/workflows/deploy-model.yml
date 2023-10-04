@@ -4,7 +4,7 @@ on: [repository_dispatch]
 
 jobs:
   demo-get-time:
-    if: github.event.action == 'get_time'
+    #if: github.event.action == 'get_time'
     runs-on: ubuntu-latest
 
     steps:
