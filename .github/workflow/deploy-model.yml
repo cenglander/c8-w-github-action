@@ -1,0 +1,17 @@
+name: Run Get Time Demo
+
+on: [repository_dispatch]
+
+jobs:
+  demo-get-time:
+    if: github.event.action == 'get_time'
+    runs-on: ubuntu-latest
+
+steps:
+  - uses: actions/checkout@v2
+  - name: Deploy Demo Process "Get Time"
+    uses: camunda-community-hub/camunda-platform-8-github-action@master
+    with:
+      clientConfig: ${{ secrets.ZEEBE_CLIENT_CONFIG }}
+      operation: deployProcess
+      bpmnFilename: bpmn/demo-get-time.bpmn
